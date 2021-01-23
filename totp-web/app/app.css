@@ -1,0 +1,127 @@
+/* app css stylesheet */
+
+
+body {
+}
+
+
+
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.site-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48%;
+    height: 100%;
+    line-height: 70px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+}
+
+.otp-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48%;
+    height: 100%;
+    line-height: 70px;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    text-align: right;
+}
+
+.otp-options {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 0;
+    height: 90%;
+    background: #222222;
+}
+
+.frm-otp {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 1;
+    margin: 0px auto;
+}
+
+input {
+    margin-bottom: 5px !important;
+}
+
+
+.footer{
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+
+}
+
+.keyField {
+    margin: 0px auto;
+    position:relative;
+    height: 70px;
+    width: 100%;
+    background-color: #222;
+
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+
+.profile{
+    border: 3px solid #B7B7B7;
+    padding: 10px;
+    margin-top: 10px;
+    width: 350px;
+    background-color: #F7F7F7;
+    height: 160px;
+}
+.profile p{margin: 0px 0px 10px 0px;}
+.head{margin-bottom: 10px;}
+.head a{float: right;}
+.profile img{width: 100px;float: left;margin: 0px 10px 10px 0px;}
+.proDetails{float: left;}

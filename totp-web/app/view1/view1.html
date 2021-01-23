@@ -1,0 +1,68 @@
+<div class="col col-md-4">
+    <div class="input-group" style="width: 100%">
+        <input type="text" ng-model="$ctrl.queryFilter"
+               id = "txtFilterWallet"
+               class="form-control"
+               focus="true"
+               ng-keypress="$ctrl.keyCopy($event, filtered)"
+               placeholder="Search for wallet...">
+
+    </div><!-- /input-group -->
+<div  class="well" >
+<p ng-show="$ctrl.loading">Retrieving data!</p>
+
+<div class="keyField" ng-repeat="key in $ctrl.keys | filter: $ctrl.queryFilter as filtered" >
+    <div style="position:absolute; top:0; left:0;width: 100%; background-color: #800000;height: 10%; opacity: 0.7;">
+    </div>
+    <div style="position:absolute; top:0; left:0; opacity: 0.7; width: {{ key.time*100/30 }}%; background-color: lightblue;height: 10%">
+    </div>
+    <div class="site-label">
+        <input class="chk" type="CHECKBOX"
+            ng-model="key.selected"
+            ng-click="$ctrl.checked(key)"
+            id="UNIQUELABEL{{::$id}}_1"
+        /> 
+        <label for="UNIQUELABEL{{::$id}}_1"> {{key.site}}</label>
+    </div>
+    <!--<span style="margin-left: 10px; color: #66f; position: absolute; left: 50%; line-height: 70px;">{{key.time}}</span>-->
+    <div class="otp-label">
+        <a class="label label-success" href="javascript://" ng-click="$ctrl.copy(key)">{{key.totp}}</a>
+        <a class ="label label-info" data-toggle="modal" data-target="#myModal" href="javascript://" ng-click="$ctrl.createQr(key)"><i class="fa fa-qrcode"></i></a>
+    </div>
+    <div class="otp-options"></div>
+</div>
+
+    <div class="footer" >
+        <div class="input-group-btn">
+            <a class="btn btn-default" ng-href="#!/view2">+</a>
+            <button type="button" class="btn btn-default" ng-class="$ctrl.selected ? '' : 'disabled'" ng-click="$ctrl.delete()">-</button>
+        </div>
+        <div class="input-group-addon" id ="lblInfo" ng-show="$ctrl.showInfoLabel"><div class="label label-info">{{$ctrl.lblInfo  + " " + $ctrl.secs}}</div></div>
+    </div>
+
+</div>
+</div>
+
+<div id ="myModal" class="modal fade" role = "dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <p><i style="color:green">{{$ctrl.key.site}}</i> on <i style="color:green">{{$ctrl.user.email}}</i></p>
+
+            </div>
+            <div class="modal-body" >
+                <p style="text-align: center">
+                    <qrcode data="{{$ctrl.qrString}}" size="200" download> </qrcode>
+
+                    <!--<qrcode data="string" version="2" error-correction-level="Q" size="200" color="#fff" ba kground="#000"></qrcode>-->
+                </p>
+                <p style="text-align: center">
+                    <b ng-bind="$ctrl.formattedKey | uppercase"></b>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

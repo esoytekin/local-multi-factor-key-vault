@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  totp-server:
+    image: totp-server
+    build: ./totp-server
+    ports:
+      - "9081:8081"
+    volumes:
+      - totp-data:/usr/src/app/schema
+  totp-web:
+    image: totp-web
+    build: ./totp-web
+    ports:
+      - "3000:8000"
+volumes:
+  totp-data:
+
