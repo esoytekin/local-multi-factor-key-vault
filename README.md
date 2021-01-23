@@ -14,8 +14,6 @@ it is useful if you want to automate your tasks that involves tfa keys to login 
 
 # Installation
 
-easiest way to start the application is using docker.
-
 run `docker-compose up` and open `http:\\localhost:3000` in your browser.
 
 # Usage
